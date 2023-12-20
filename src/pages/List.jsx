@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
 import { DateRange } from 'react-date-range';
+import SearchItem from '../component/SearchItem.jsx';
 
 const ListContainer = styled.div`
   display: flex;
@@ -23,12 +24,13 @@ const ListSearch = styled.div`
   padding: 10px;
   border-radius:10px ;
   position: sticky;
+  height: 450px;
   top: 10px;
 `;
 
 const LsTitle = styled.h1`
   font-size: 20px;
-  color: gray;
+  color: #0071c2;
   margin-bottom: 10px;
 `;
 
@@ -41,6 +43,7 @@ const ListItem = styled.div`
 
 const ListLabel = styled.label`
   font-size: 12px;
+  margin-bottom: 5px;
 `
 
 const ListInput = styled.input`
@@ -56,6 +59,30 @@ const ListSpan = styled.span`
   display: flex;
   align-items: center;
   cursor: pointer;
+`;
+
+const ListOptionItem = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:10px ;
+    color: #555;
+    font-size: 12px;
+    padding: 0px 8px;
+`;
+const ListOptionText = styled.span``;
+const ListOptionInput = styled.input`
+    width: 50px;
+`;
+
+const ListSearchBtn = styled.button`
+  padding: 10px;
+  background-color: #0071c2;
+  color: white;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius:5px ;
 `;
 
 const ListResult = styled.div`
@@ -78,10 +105,12 @@ const List = () => {
         <ListWrapper>
         <ListSearch>
         <LsTitle>Search</LsTitle>
+
         <ListItem>
           <ListLabel>Destination</ListLabel>
           <ListInput placeholder={destination}/>
         </ListItem>
+
         <ListItem>
           <ListLabel>Check-in Date</ListLabel>
           <ListSpan onClick={()=> setOpenDate(!openDate)}>
@@ -89,8 +118,55 @@ const List = () => {
           </ListSpan>
           {openDate && <DateRange onChange={(item) =>setDate([item.selection])} minDate={new Date()} ranges={date} />}
         </ListItem>
+
+        <ListItem>
+          <ListLabel>Options</ListLabel>
+        <ListOptionItem>
+        <ListOptionText>
+          Min price <small>per night</small>
+        </ListOptionText>
+        <ListOptionInput />
+        </ListOptionItem>
+
+        <ListOptionItem>
+        <ListOptionText>
+          Max price <small>per night</small>
+        </ListOptionText>
+        <ListOptionInput />
+        </ListOptionItem>
+
+        <ListOptionItem>
+        <ListOptionText>
+            Adult
+        </ListOptionText>
+        <ListOptionInput type='number' min={1} placeholder={options.adult} />
+        </ListOptionItem>
+
+        <ListOptionItem>
+        <ListOptionText>
+          Children
+        </ListOptionText>
+        <ListOptionInput type='number' min={0} placeholder={options.children}/>
+        </ListOptionItem>
+
+        <ListOptionItem>
+        <ListOptionText>
+          Room
+        </ListOptionText>
+        <ListOptionInput type='number' min={1} placeholder={options.room}/>
+        </ListOptionItem>
+        </ListItem>
+        <ListSearchBtn>Search</ListSearchBtn>
         </ListSearch>
-        <ListResult>1</ListResult>  
+        <ListResult>
+        <SearchItem />  
+        <SearchItem />  
+        <SearchItem />  
+        <SearchItem />  
+        <SearchItem />  
+        <SearchItem />  
+        <SearchItem />  
+        </ListResult>  
         </ListWrapper>
         </ListContainer>
         
