@@ -5,7 +5,6 @@ const FooterCont = styled.div`
     width: 100%;
     max-width: 1024px;
     font-size: 12px;
-    border: 1px solid red;
 `;
 const FooterWrapper = styled.div`
     width: 100%;
@@ -14,7 +13,18 @@ const FooterWrapper = styled.div`
     margin-bottom: 50px;
 `;
 const FooterList = styled.ul``;
-const FooterListItems = styled.li``;
+const FooterListItems = styled.li`
+    list-style-type: none;
+    color: #003580;
+    margin-top: 10px;
+    font-weight: 500;
+`;
+
+const FooterText = styled.p`
+    color: #003580;
+    text-align: center;
+    font-weight: 500;
+`;
 
 const Footer = () => {
   return (
@@ -61,6 +71,7 @@ const Footer = () => {
             <FooterListItems>Hotels</FooterListItems>
         </FooterList>
         </FooterWrapper>
+        <FooterText>Copyright 2023 Ticketbooking App </FooterText>
     </FooterCont>
   )
 }

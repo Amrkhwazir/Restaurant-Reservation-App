@@ -6,6 +6,7 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { addDays, format } from 'date-fns';
 import { DateRangePicker } from 'react-date-range';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -117,6 +118,7 @@ const OptionCounterNum = styled.span``;
 
 const Header = ({type}) => {
   
+    const [destination, setDestination] = useState("")
     const [openDate, setOpenDate] = useState(false)
     const [date, setDate] = useState([
         {
@@ -125,6 +127,7 @@ const Header = ({type}) => {
           key: 'selection'
         }
       ]);
+      const navigate = useNavigate();
 
       const [openOption, setOpenOption] = useState(false)
       const [option, setOption] = useState({
@@ -142,6 +145,10 @@ const Header = ({type}) => {
         })
       }
 
+
+      const searchHandler = () => {
+        navigate("/hotels", {state: {destination, date, option}})
+      }
       
   return (
     <HeaderCont>
@@ -179,7 +186,7 @@ const Header = ({type}) => {
             <HeaderSearch>
                 <HeaderSearchItems>
                     <FontAwesomeIcon icon={faBed} style={{color: "lightgray"}}/>
-                    <TextIput type='text' placeholder='Where are you gong?'/>
+                    <TextIput type='text' placeholder='Where are you gong?' onChange={(e)=> setDestination(e.target.value)}/>
                 </HeaderSearchItems>
                 {/* ------<>----- */}
                 <HeaderSearchItems>
@@ -194,6 +201,7 @@ const Header = ({type}) => {
                         months={2}
                         ranges={date}
                         direction="horizontal"
+                        minDate={new Date()}
                         />;
                     </DateRange>}
                 </HeaderSearchItems>
@@ -231,7 +239,7 @@ const Header = ({type}) => {
                 </HeaderSearchItems>
                  {/* ------<>----- */}
                 <HeaderSearchItems>
-                 <HeaderButton>Search</HeaderButton>
+                 <HeaderButton onClick={searchHandler}>Search</HeaderButton>
                 </HeaderSearchItems>
             </HeaderSearch> </>}
         </HeaderWrapper>

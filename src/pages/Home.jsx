@@ -14,6 +14,7 @@ const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  width: 100%;
   `;
 
   const HomeH1 = styled.h1`
