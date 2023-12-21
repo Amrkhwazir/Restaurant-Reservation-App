@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Mail = styled.div`
     width: 100%;
-    max-width: 1024px;
+    max-width: 1100px;
     margin-top: 50px;
     background-color: #003580;
     color: white;
