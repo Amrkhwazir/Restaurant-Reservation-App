@@ -152,6 +152,7 @@ const Hotel = () => {
 
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
+
   const photos  = [
     {
       src:'https://th.bing.com/th/id/R.d1ad93015e8f92033dc884aa6c12c480?rik=PhQDSTGRxb5ZUw&pid=ImgRaw&r=0'

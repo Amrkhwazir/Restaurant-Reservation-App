@@ -9,11 +9,21 @@ import {
 import Home from './pages/Home.jsx';
 import List from './pages/List.jsx';
 import Hotel from './pages/Hotel.jsx';
+import Signin from './pages/Signin.jsx';
+import Signup from './pages/Signup.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home/>
+  },
+  {
+    path: "/signin",
+    element: <Signin/>
+  },
+  {
+    path: "/signup",
+    element: <Signup/>
   },
   {
     path: "/hotels",

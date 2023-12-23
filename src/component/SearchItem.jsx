@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 
 const ItemsContainer = styled.div`
     border: 1px solid black;
@@ -117,6 +118,9 @@ const ItemButton = styled.button`
 `;
 
 const SearchItem = () => {
+
+    const navigate = useNavigate();
+
   return (
     <ItemsContainer>
         <ItemsWrapperImage>
@@ -139,7 +143,7 @@ const SearchItem = () => {
             <ItemsDetails>
                 <ItemsPrice>$112</ItemsPrice>
                 <ItemsPriceDesc> Include Taxes and Fees</ItemsPriceDesc>
-                <ItemButton>See Availability</ItemButton>
+                <ItemButton onClick={()=> navigate("/hotels/12344")}>See Availability</ItemButton>
             </ItemsDetails>
         </ItemsWrapperRating>
     </ItemsContainer>

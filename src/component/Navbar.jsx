@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 
 const NavbarCont = styled.div`
     height: 50px;
@@ -28,6 +29,9 @@ const NavButton = styled.button`
 `;
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
+
   return (
     <NavbarCont>
         <NavbarWrapper>
@@ -35,8 +39,8 @@ const Navbar = () => {
             Ticket Booking App
         </NavbarLogo>
         <NavItems>
-    <NavButton>Register</NavButton>
-    <NavButton>Login</NavButton>
+    <NavButton onClick={()=>navigate("/signup")}>Register</NavButton>
+    <NavButton onClick={()=>navigate("/signin")}>Login</NavButton>
         </NavItems>
         </NavbarWrapper>
     </NavbarCont>
