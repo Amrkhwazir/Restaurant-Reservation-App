@@ -4,7 +4,7 @@ import { register, signIn } from "../controllers/authControls.js";
 
 const authRouter = express.Router();
 
-authRouter.get("/signin", signIn);
-authRouter.get("/register", register);
+authRouter.post("/signin", signIn);
+authRouter.post("/register", register);
 
 export default authRouter
